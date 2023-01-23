@@ -26,8 +26,8 @@ docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v c:/Users/alexe/git/data-engineering-zoomcamp/week_1_basics_n_setup/2_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data \
-  -p 5432:5432 \
+  -v D:/Study/DE-ZOOMCAMP/week1/2_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -p 5433:5432 \
   postgres:13
 ```
 
@@ -140,8 +140,8 @@ docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v c:/Users/alexe/git/data-engineering-zoomcamp/week_1_basics_n_setup/2_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data \
-  -p 5432:5432 \
+  -v D:/Study/DE-ZOOMCAMP/week1/2_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -p 5433:5432 \
   --network=pg-network \
   --name pg-database \
   postgres:13
@@ -171,7 +171,7 @@ python ingest_data.py \
   --user=root \
   --password=root \
   --host=localhost \
-  --port=5432 \
+  --port=5433 \
   --db=ny_taxi \
   --table_name=yellow_taxi_trips \
   --url=${URL}
