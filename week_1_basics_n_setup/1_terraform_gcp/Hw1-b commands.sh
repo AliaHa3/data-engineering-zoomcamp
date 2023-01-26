@@ -23,3 +23,8 @@ gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
 
 export GOOGLE_APPLICATION_CREDENTIALS=~/.gc/dezoomcamp-375819-433f99121d3e.json
 gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
+
+############
+terraform init
+terraform plan
+terraform apply
