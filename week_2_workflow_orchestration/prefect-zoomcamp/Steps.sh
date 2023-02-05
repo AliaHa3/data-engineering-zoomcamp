@@ -57,6 +57,7 @@ prefect deployment apply etl_parent_flow-deployment.yaml
 pip install prefect-github
 prefect block register -m prefect_github
 
+python flows\02_gcp\etl_web_to_gcs git.py
 
 # A:
 
