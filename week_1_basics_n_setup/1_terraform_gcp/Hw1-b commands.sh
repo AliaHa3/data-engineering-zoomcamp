@@ -28,3 +28,4 @@ gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
 terraform init
 terraform plan
 terraform apply
+terraform destroy
