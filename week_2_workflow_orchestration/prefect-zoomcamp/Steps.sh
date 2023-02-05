@@ -63,6 +63,8 @@ python flows\02_gcp\etl_web_to_gcs_git.py
 prefect deployment build -n "Q4-gitA" -sb github/dezoomcamp-git week_2_workflow_orchestration/prefect-zoomcamp/flows/02_gcp/etl_web_to_gcs_git.py:etl_web_to_gcs --apply
 prefect deployment build -n "Q4-gitB" -sb github/dezoomcamp-git data-engineering-zoomcamp/flows/etl_web_to_gcs_git.py:etl_web_to_gcs --apply
 
+prefect deployment build -n "Q4-gitB" -sb github/dezoomcamp-git/data-engineering-zoomcamp/flows etl_web_to_gcs_git.py:etl_web_to_gcs --apply
+
 https://github.com/AliaHa3/data-engineering-zoomcamp/blob/main/week_2_workflow_orchestration/prefect-zoomcamp/flows/02_gcp/etl_gcs_to_bq_new.py
 
 
