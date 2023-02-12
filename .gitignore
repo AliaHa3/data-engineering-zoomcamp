@@ -14,5 +14,7 @@
 serving_dir
 *.csv
 *.gz
+*.parquet
 .ipynb_checkpoints/
 !week_6_stream_processing/avro_example/data/rides.csv
+*dezoomcamp-375819-433f99121d3e.json
