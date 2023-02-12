@@ -62,6 +62,7 @@ python flows\02_gcp\etl_web_to_gcs_git.py
 ## cd in git root folder
 prefect deployment build -n "Q4-gitB" -sb github/dezoomcamp-git flows/etl_web_to_gcs_git.py:etl_web_to_gcs --apply
 
+
 # A:88605
 
 #Q5
