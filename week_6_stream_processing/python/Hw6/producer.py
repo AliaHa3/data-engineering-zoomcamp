@@ -32,7 +32,7 @@ class RideCSVProducer:
                 records.append(f'{row[0]}, {row[1]}, {row[2]}, {row[3]}, {row[4]}, {row[9]}, {row[16]}')
                 ride_keys.append(str(row[0]))
                 i += 1
-                if i == 5:
+                if i == 0:
                     break
         return zip(ride_keys, records)
 
@@ -68,8 +68,8 @@ class GreenRidesCSVProducer:
                 records.append(f'{row[0]}, {row[1]}, {row[2]}, {row[3]}, {row[4]}, {row[5]}, {row[6]}, {row[7]}')
                 ride_keys.append(str(row[0]))
                 i += 1
-                # if i == 5:
-                #     break
+                if i == 25:
+                    break
         return zip(ride_keys, records)
 
     def publish(self, topic: str, records: [str, str]):
@@ -103,8 +103,8 @@ class FhvRidesCSVProducer:
                 records.append(f'{row[0]}, {row[1]}, {row[2]}, {row[3]}, {row[4]}, {row[5]}, {row[6]}')
                 ride_keys.append(str(row[0]))
                 i += 1
-                # if i == 5000:
-                #     break
+                if i == 25:
+                    break
         return zip(ride_keys, records)
 
     def publish(self, topic: str, records: [str, str]):
@@ -127,17 +127,18 @@ if __name__ == "__main__":
         'key_serializer': lambda x: x.encode('utf-8'),
         'value_serializer': lambda x: x.encode('utf-8')
     }
-    # producer = RideCSVProducer(props=config)
-    # ride_records = producer.read_records(resource_path=INPUT_DATA_PATH)
-    # print(ride_records)
-    # producer.publish(topic=PRODUCE_TOPIC_RIDES_CSV, records=ride_records)
+    
+    producer = RideCSVProducer(props=config)
+    ride_records = producer.read_records(resource_path=INPUT_DATA_PATH)
+    print(ride_records)
+    producer.publish(topic=PRODUCE_TOPIC_RIDES_CSV, records=ride_records)
 
     producer = GreenRidesCSVProducer(props=config)
     ride_records = producer.read_records(resource_path=GREEN_RIDES_DATA_PATH)
     print(ride_records)
     producer.publish(topic=PRODUCE_TOPIC_GREEN_RIDES_CSV, records=ride_records)
 
-    # producer = FhvRidesCSVProducer(props=config)
-    # ride_records = producer.read_records(resource_path=FHVH_RIDES_DATA_PATH)
-    # print(ride_records)
-    # producer.publish(topic=PRODUCE_TOPIC_FHVH_RIDES_CSV, records=ride_records)
+    producer = FhvRidesCSVProducer(props=config)
+    ride_records = producer.read_records(resource_path=FHVH_RIDES_DATA_PATH)
+    print(ride_records)
+    producer.publish(topic=PRODUCE_TOPIC_FHVH_RIDES_CSV, records=ride_records)
